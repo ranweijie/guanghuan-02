@@ -1,0 +1,38 @@
+﻿
+/*********************************************Python环境配置*******************************************************/
+
+1、安装Python [Window平台 3.4版本]  ===python 安装包===
+
+0.0、共享文件：\\192.168.199.10\share\python  python-3.4.16490.1437702276.msi
+0.1、官网 Python官网：http://www.python.org/
+0.2、菜鸟网址：http://www.runoob.com/python/python-tutorial.html
+
+2、设置环境变量（依实际）
+D:\Python34\; 
+D:\Python34\Scripts;【便于用pip命令安装模块，python3.4已自带pip工具】
+
+3、安装所需模块
+各种模块官方地址：官方地址：https://pypi.python.org/pypi
+
+当前项目所需模块：
+pip install bottle
+pip install pymongo
+pip install Beaker
+pip install tornado
+
+4、运行start.bat，若提示缺少某个模块，按照步骤3的方式安装即可。
+
+
+/***************************************************账号添加*******************************************************/
+5、账号添加
+
+5.0 账号格式为：正确的邮箱地址；密码格式为：6~20位字符的md5加密值（32位小写）。
+
+5.1管理员账号（直接写入数据库）
+eg：账号：1234@1234.com ；密码：123456
+use oz-manage
+db.user.insert({"username":"1234@1234.com","password":"e10adc3949ba59abbe56e057f20f883e","user_type":"provider"})
+
+5.2广告主账号（通过注册页面注册即可）
+
+进入登录首页 ===》注册账号

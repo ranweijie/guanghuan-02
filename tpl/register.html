@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">   
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>客户自助平台注册</title>
+  <link type="text/css" href="/css/bootstrap.min.css" rel="stylesheet">
+  <link type="text/css" href="/css/bootstrap-dialog.min.css" rel="stylesheet">
+  <link type="text/css" href="/css/register.css" rel="stylesheet">
+  <link type="text/css" href="/css/public.css" rel="stylesheet">
+  <script type="text/javascript" src="/js/jquery-2.2.2.min.js"></script>
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/js/bootstrap-dialog.min.js"></script>
+  <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="register-box">
+  <div class="register-content">
+    <h2>账号注册<a id="charge-btn" class="btn btn-default btn-sm" href="/">立即登录</a><span class="login-now">已有账号</span></h2>
+    <hr>
+    <form class="register-form" method="post">
+      <div class="regsiter-item">
+        <label for="username">帐号名称</label>
+        <input id="username" name="username" type="email" class="init-input-border" value="" placeholder="请输入电子邮箱">
+        <input type="hidden" name="is_username_ok" value=""> 
+        <span id="username-tips" class="init-tips">
+          *请用您的电子邮箱注册！
+        </span> 
+      </div>
+      <div class="regsiter-item">
+        <label for="display-name">姓名/公司</label>
+        <input id="display-name" name="display-name" type="text" class="init-input-border" value="" placeholder="请输入姓名/公司名称">
+        <span id="display-name-tips">请输入姓名/公司名称</span> 
+      </div>
+      <div class="regsiter-item">
+        <label for="contact-name">联系人</label>
+        <input id="contact-name" name="contact-name" type="text" class="init-input-border" value="" placeholder="请输入联系人">
+        <span id="contact-name-tips">请输入联系人姓名(中文或英文)</span> 
+      </div>
+      <div class="regsiter-item">
+        <label for="contact-phone">联系电话</label>
+        <input id="contact-phone" name="contact-phone" type="text" class="init-input-border" value="" placeholder="请输入联系电话">
+        <span id="contact-phone-tips">请输入座机号或手机号</span> 
+      </div>
+      <div class="regsiter-item">
+        <label for="contact-qq">联系QQ</label>
+        <input id="contact-qq" name="contact-qq" type="text" class="init-input-border" value="" placeholder="请输入联系QQ">
+        <span id="contact-qq-tips">请输入联系QQ</span> 
+      </div>
+      <div class="regsiter-item">
+        <label for="contact-address">联系地址</label>
+        <input id="contact-address" name="contact-address" type="text" class="init-input-border" value="" placeholder="请输入联系地址">
+        <span id="contact-address-tips">请输入联系地址</span> 
+      </div>
+      <div class="regsiter-item">
+        <label for="login-pwd">登录密码</label>
+        <input id="login-pwd" name="login-pwd" type="password" class="init-input-border" value="" placeholder="请输入您要设置的登录密码">
+        <span id="login-pwd-tips">登录密码(6~20位字符)</span> 
+      </div>
+      <div class="regsiter-item">
+        <label for="confirm-pwd">确认密码</label>
+        <input id="confirm-pwd" name="confirm-pwd" type="password" class="init-input-border" value="" placeholder="请再次输入您的登录密码">
+        <span id="confirm-pwd-tips">请再次输入登录密码</span> 
+      </div>
+      <div class="regsiter-item">
+        <button type="button" class="submit-btn" id="submit-btn">同意协议并注册</button>
+        <span class="website-rule">查看网站协议</span>
+      </div>
+    </form>
+  </div>
+</div>
+  <script type="text/javascript" src="/js/public-ozhuan.js"></script>
+  <script type="text/javascript" src="/js/public-register.js"></script>
+</body>
+</html>

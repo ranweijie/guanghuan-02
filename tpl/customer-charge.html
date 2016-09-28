@@ -1,0 +1,96 @@
+<div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+		<div class="panel panel-success">
+		    <div class="panel-heading main-content-title">充值</div>
+		    <div class="panel-body">
+			<div class="col-md-9">
+				<form method="POST" action="#" class="form-horizontal">
+
+				  <div class="form-group">
+				    <label for="charge_amount" class="col-sm-2 control-label">充值金额</label>
+				    <div class="col-sm-6">
+				      <div class="input-group">
+				        <input class="form-control" id="charge_amount" name="charge_amount" type="text" value="" />
+				        <span class="input-group-addon">元</span>
+				      </div>
+				    </div>
+
+				    <div class="col-sm-4">
+				      <p class="form-control-static"></p>
+				    </div>
+				  </div>
+
+				  <div class="form-group">
+				    <label for="check_amount" class="col-sm-2 control-label">确认金额</label>
+				    <div class="col-sm-6">
+				      <div class="input-group">
+				        <input class="form-control" id="check_amount" name="check_amount" type="text" value=""/>
+				        <span class="input-group-addon">元</span>
+				      </div>
+				    </div>
+				  </div>
+
+
+				  <div class="form-group">
+				    <label for="pay_name" class="col-sm-2 control-label">付款人</label>
+				    <div class="col-sm-6">
+				      <input class="form-control" id="pay_name" name="pay_name" type="text" placeholder="请输入付款人姓名" autocomplete ="on" value=""/>
+				    </div>
+				    <div class="col-sm-4">
+				      <p class="form-control-static">请填写付款帐号的付款人名字，以便核对</p>
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="name" class="col-sm-2 control-label">是否开票</label>
+				    <div class="col-sm-10">
+				      <label class="radio-inline" for="invoice_not_needed_btn">
+				      	<input name="invoice_status" type="radio" value="0" class="" id="invoice_not_needed_btn" checked/>不需要</label>
+				      <label class="radio-inline invoice-needed-toggle" for="invoice_needed_btn">
+				      <input name="invoice_status" type="radio" value="1" class="" id="invoice_needed_btn" />需要</label>
+				    </div>
+				  </div>
+				  <div class="form-group invoice-detail hidden">
+				    <label for="invoice_title" class="col-sm-2 control-label">发票抬头</label>
+				    <div class="col-sm-10">
+				      <input class="form-control" id="invoice_title" name="invoice_title" type="text" placeholder="请输入发票抬头" value=""/>
+				    </div>
+				  </div>
+				  <div class="form-group invoice-detail hidden">
+				    <label for="invoice_receiver" class="col-sm-2 control-label">收件人</label>
+				    <div class="col-sm-10">
+				      <input class="form-control" id="invoice_receiver" name="invoice_receiver" type="text" placeholder="请输入收件人" value=""/>
+				    </div>
+				  </div>
+				  <div class="form-group invoice-detail hidden">
+				    <label for="invoice_phone" class="col-sm-2 control-label">联系电话</label>
+				    <div class="col-sm-10">
+				      <input class="form-control" id="invoice_phone" name="invoice_phone" type="text" placeholder="请输入联系电话" value=""/>
+				    </div>
+				  </div>
+				  <div class="form-group invoice-detail hidden">
+				    <label for="invoice_address" class="col-sm-2 control-label">快递地址</label>
+				    <div class="col-sm-10">
+				      <input class="form-control" id="invoice_address" name="invoice_address" type="text" placeholder="请输入快递地址" value=""/>
+				    </div>
+				  </div>
+
+				  <div class="horizontal-devider"></div>
+				  <div class="form-group alert alert-danger hidden" id="charge_tips_div">
+	                <ul class="form-control-static" id="charge_tips_ul">
+	                </ul>
+	              </div>
+				  <p>请将充值款项转入以下官方账户</p>
+				  <p>公司名称：成都光环互动有限公司<br />银行账号：3166 3803 0026 61224<br />开户银行：上海银行白玉支行</p>
+
+				  <div class="form-group">
+				    <div class="col-sm-offset-3 col-sm-9">
+				      <button type="button" id="submit-btn" class="btn btn-primary">提交充值</button>
+				    </div>
+				  </div>
+				</form>
+			</div>
+		    </div>
+		</div>
+   </div>
+</div>
+<script type="text/javascript" src="/js/customer-charge.js"></script>

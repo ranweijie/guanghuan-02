@@ -1,0 +1,204 @@
+body {
+    font-family: "ff-tisa-web-pro-1", "ff-tisa-web-pro-2", "Lucida Grande", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "WenQuanYi Micro Hei", sans-serif
+}
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, .lead, a, .a, label, option, input, span, select, button, textarea, div {
+    font-family: "ff-tisa-web-pro-1", "ff-tisa-web-pro-2", "Lucida Grande", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei UI", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif
+}
+/* Styles go here */
+
+body {
+    padding-top: 66px;
+}
+/*** move top **/
+#toTop {
+	display: none;
+	text-decoration: none;
+	position: fixed;
+	bottom: 10px;
+	right: 12px;
+	overflow: hidden;
+	width: 30px;
+	height: 30px;
+	border: none;
+	text-indent: 100%;
+	background: url(../img/arrow_up.png) no-repeat right top;
+	background-size:30px 30px;
+}
+#toTopHover {
+	width: 30px;
+	height: 30px;
+	display: block;
+	overflow: hidden;
+	float: right;
+	opacity: 0;
+	-moz-opacity: 0;
+	filter: alpha(opacity=0);
+}
+#toTop:active, #toTop:focus {
+	outline: none;
+}
+
+/* this is only to style the sidebar - you can make the sidebar look any way you want */
+
+.sidebar {
+    padding: 15px;
+    background-color: #f8f8f8;
+    border-right: 1px solid #e7e7e7;
+}
+/* All the default sidebar styles */
+/* toggle button settings */
+/* Note: this disables navbar-toggle class hide function. set visibility with the boostrap visible/hidden classes */
+
+.navbar.navbar-static .navbar-header {
+    float: left;
+}
+.navbar .navbar-toggle.toggle-left {
+    float: left;
+    margin-left: 15px;
+}
+.navbar .navbar-toggle.toggle-right {
+    float: right;
+    margin-right: 15px;
+}
+.navbar .navbar-toggle.toggle-sidebar, [data-toggle="sidebar"] {
+    display: block;
+}
+/* sidebar settings */
+
+.sidebar {
+    position: fixed;
+    display: block;
+    top: 51px;
+    bottom: 0;
+    z-index: 1000;
+    min-height: 100%;
+    max-height: none;
+    overflow: auto;
+}
+.sidebar-left {
+    left: 0;
+}
+.sidebar-right {
+    right: 0;
+}
+/* css to override hiding the sidebar according to different screen sizes */
+
+.row .sidebar.sidebar-left.sidebar-xs-show {
+    left: 0;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -moz-transform: none;
+}
+/*right sidebar is untested */
+
+.row .sidebar.sidebar-right.sidebar-xs-show {
+    right: 0;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -moz-transform: none;
+}
+@media (min-width: 768px) {
+    .row .sidebar.sidebar-left.sidebar-sm-show {
+        left: 0;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        -moz-transform: none;
+    }
+    /*right sidebar is untested */
+    
+    .row .sidebar.sidebar-right.sidebar-sm-show {
+        right: 0;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        -moz-transform: none;
+    }
+}
+@media (min-width: 992px) {
+    .row .sidebar.sidebar-left.sidebar-md-show {
+        left: 0;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        -moz-transform: none;
+    }
+    .row .sidebar.sidebar-right.sidebar-md-show {
+        right: 0;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        -moz-transform: none;
+    }
+}
+@media (min-width: 1170px) {
+    .row .sidebar.sidebar-left.sidebar-lg-show {
+        left: 0;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        -moz-transform: none;
+    }
+    .row .sidebar.sidebar-right.sidebar-lg-show {
+        right: 0;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        -moz-transform: none;
+    }
+}
+/* animation class - optional: without it the sidebar would just pop in and out*/
+
+.sidebar-animate {
+    -webkit-transition: -webkit-transform 300ms ease;
+    -moz-transition: -moz-transform 300ms ease;
+    transition: transform 300ms ease;
+}
+/* Left panel positioning classes */
+
+.sidebar.sidebar-left {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    -moz-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+}
+.sidebar.sidebar-left.sidebar-open {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -moz-transform: none;
+}
+/* TODO: TEST THIS! Right panel positioning classes*/
+
+.sidebar.sidebar-right {
+    -webkit-transform: translate3d(100%, 0, 0);
+    -moz-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+}
+.sidebar.sidebar-right.sidebar-open {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -moz-transform: none;
+}
+@media screen and (max-width: 899px) {
+    .columns {
+        max-height: 400px;
+        overflow-y: auto;
+    }
+}
+@media screen and (min-width: 900px) {
+    .columns {
+        -moz-column-count: 6;
+        -webkit-column-count: 6;
+        column-count: 6;
+        width: 800px;
+        left: auto;
+        right: 0;
+    }
+}
+
+
+<style>
+table.platform-brief th,.platform-brief-title,table.customer-brief-list th,.customer-brief-title{
+  text-align: center;
+}
+#platformBriefList td{
+  text-align: right;
+}
+
+#platformBriefList tr td:nth-child(1){
+  text-align: center;
+}
+</style>

@@ -1,0 +1,4 @@
+{
+	"oz_manage":{"mongo_uri":"mongodb://aaa:bbb@localhost:27017/oz_manage","db_name":"oz_manage"},
+	"oz_task":{"mongo_uri":"mongodb://aaa:bbb@localhost:27017/oz","db_name":"oz"}
+}

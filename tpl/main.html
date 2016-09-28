@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">   
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>{{title}}</title>
+    <link type="text/css" href="/css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" href="/css/bootstrap-dialog.min.css" rel="stylesheet">
+    <link type="text/css" href="/css/public.css" rel="stylesheet">
+    <script type="text/javascript" src="/js/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap-dialog.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body spellcheck="false">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-2 col-sm-2 col-md-2 col-sm-2 sidebar sidebar-animate sidebar-left sidebar-sm-show">
+                <div class="sidebar-top">
+                    <div class="sidebar-top-title">
+                        <h4>
+                            %if isCustomer:
+                                <a href="/accountReport">客户自助平台</a>
+                                %else:
+                                <a href="/customerInfo">偶赚管理平台</a>
+                            %end
+                        </h4>
+                    </div>
+                    <div class="sidebar-top-userinfo">
+                        <ul>
+                            <li>欢迎您 <b><span id="curr-user" >{{username}}</span></b></li>
+                            <li>
+                                %if isCustomer:
+                                    <a href="/logout?type=customer" title="退出自助平台">
+                                %else:
+                                    <a href="/logout?type=provider" title="退出偶赚平台">
+                                %end
+                              <span>退&nbsp;&nbsp;出</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="divide-line"></div>
+                <div class="sidebar-nav">
+                    <ul class="nav nav-pills nav-stacked" id="main-nav">
+                        % for item in navPageArr:
+                            %if item[0]==content or (item[0]=="customer-finance-manage.html" and content == "customer-charge.html") or (item[0]=="customer-guanggao-manage.html" and content == "customer-add-guanggao.html") or (item[0]=="serv-task-manage.html" and (content == "rwxz.html" or content == "rwxq.html" or content == "rwxg.html")):
+                                <li class="active slide-bar-center">
+                                 %else:
+                                <li>
+                            %end
+                                    <a href="{{item[1]}}"><span class="glyphicon {{item[2]}}"></span>{{item[3]}}</a>
+                                </li>
+                        % end
+                    </ul>
+                </div>
+            </div>
+
+            <div class="main-right-content col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2 col-sm-10 col-sm-offset-2 col-xs-12">
+              % include(content)
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/js/public-sidebar.js"></script>
+    <script type="text/javascript" src="/js/public-ozhuan.js"></script>
+</body>
+</html>

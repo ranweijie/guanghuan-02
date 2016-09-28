@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>霸王GM工具</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" href="/css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" href="/css/jyzz.css" rel="stylesheet">
+</head>
+
+<body spellcheck="false">
+    <div class="container">
+        <div class="col-sm-offset-3 col-sm-6">
+            <div class="panel panel-success">
+                <div class="panel-heading">成功</div>
+                <div class="panel-body">
+                    <h2>您已经成功注销</h2>
+                    <a href="/">重新登录</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+try {
+    document.execCommand("ClearAuthenticationCache");
+} catch (e) {}
+try {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("GET", "./", true, "logout", "logout");
+    xmlHttp.send(null);
+    xmlHttp.abort();
+} catch (e) {}
+</script>
+
+</html>

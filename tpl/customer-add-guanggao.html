@@ -1,0 +1,277 @@
+<link type="text/css" href="/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+<div class="row">
+  <div class="col-sm-12 col-md-12 col-lg-12">
+		<div class="panel panel-success">
+	    <div class="panel-heading main-content-title">{{title}}</div>
+	    <div class="panel-body">
+				<!-- 添加新广告开始 -->
+				<div class="col-md-12">
+					<form method="POST" action="#" class="form-horizontal">
+						<!-- 应用标题&iTunes地址 -->
+					  <div class="form-group">
+					    <label class="col-sm-2 control-label" for="app_title">应用标题</label>
+					    <div class="col-sm-6">
+					      <input id="app_title" name="app_title" class="form-control" placeholder="请输入应用标题" type="text" value="" />
+					    </div>
+					    <div class="col-sm-4">
+					      <p class="form-control-static"><span style="color:red"><b>***&nbsp;必需</b></span></p>
+					    </div>
+					  </div>
+
+					  <div class="form-group">
+					    <label class="col-sm-2 control-label" for="iTunes_url">iTunes地址</label>
+					    <div class="col-sm-10">
+					      <input id="iTunes_url" class="form-control" name="iTunes_url" placeholder="请输入iTunes地址" type="text" value=""/>
+					    </div>
+					  </div>
+
+					  <div class="form-group">
+					    <label class="col-sm-2 control-label" for="skip_url">跳转链接</label>
+					    <div class="col-sm-10">
+					      <input id="skip_url" class="form-control" name="skip_url" type="text" value="" placeholder="（选填）" />
+					    </div>
+					  </div>
+
+						<!-- 搜索关键词 -->
+					  <div class="form-group">
+					    <label class="col-sm-2 control-label" for="search_kw">搜索关键词</label>
+					    <div class="col-sm-6">
+					      <input id="search_kw" class="form-control" name="search_kw" type="text" value="" placeholder="（选填）" />
+					    </div>
+					    <div class="col-sm-4">
+					      <p class="form-control-static">当前排名：<em class="form-pan-rank">--</em></p>
+					    </div>
+					  </div>
+
+						<!-- 时间份数设置 -->
+					  <div class="divide-line-small"></div>
+
+					  <div class="form-group">
+					    <label class="col-sm-2 control-label" for="start_time">开始时间</label>
+					    <div class="col-sm-6">
+					      <input id="start_time" class="form-control" name="start_time" placeholder="请选择开始时间"  title="选择开始时间" value=""/>
+					    </div>
+					  </div>
+
+					  <div class="form-group">
+					    <label class="col-sm-2 control-label" for="end_time">截止时间</label>
+					    <div class="col-sm-6">
+					      <input id="end_time" class="form-control" name="end_time" placeholder="请选择结束时间"  title="选择结束时间" value=""/>
+					    </div>
+					  </div>
+
+
+					  <div class="form-group">
+					    <label class="col-sm-2 control-label" for="plan_count">计划份数</label>
+					    <div class="col-sm-6">
+					      <input id="plan_count" class="form-control" name="plan_count" type="text" value="500"/>
+					    </div>
+					    <div class="col-sm-4">
+					      <p class="form-control-static">500份起</p>
+					    </div>
+					  </div>
+
+					  <div class="divide-line-small"></div>
+
+						<!-- 多关键词搜索 -->
+					  <div class="form-group" class="multi-kw">
+					    <label class="col-sm-2 control-label" for="platform">多关键词搜索</label>
+					    <div class="col-sm-10">
+					      <div class="form-group">
+					        <label class="radio-inline kw_flag_needed-toggle" for="kw_flag-open">
+					          <input id="flag_open" name="kw-need" type="radio" value="1">开启
+					        </label>
+					        <label class="radio-inline kw_flag_not_needed-toggle" for="kw_flag-close">
+					          <input id="flag_close" name="kw-need" type="radio" value="0" checked>关闭
+					        </label>
+					        <span class="pull-right hidden" id="addMultiKwBtns">
+						        <button type="button" class="btn btn-primary btn-sm" id="addKw" style="margin-right:1rem">添加KeyW</button>
+						        <button type="button" class="btn btn-success btn-sm" id="addOK" style="margin-right:2rem">完成添加</button>
+					        </span>
+					      </div>
+					    </div>
+					  </div>
+
+					  <div>
+					    <input type="hidden" id="curr_kw_total" value="1" />
+					    <input type="hidden" id="curr_blur_kw" value="1" />
+					    <input type="hidden" name="sort" value="100" />
+					  </div>
+						
+						<div class="form-group hidden" id="multiKwSearchDiv">
+							<label class="col-sm-2 control-label"></label>
+							<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1" id="planlist">
+								<table class="table table-hover table-condensed table-bordered">
+				          <thead>
+				              <tr align="center">
+				                  <th style="text-align:center">序号</th>
+				                  <th style="text-align:center">关键词</th>
+				                  <th style="text-align:center">搜索占比(%)</th>
+				                  <th style="text-align:center">当前排名</th>
+				                  <th style="text-align:center">操作</th>
+				              </tr>
+				          </thead>
+				          <tbody id='multiKwSearchList'>
+				            <tr id="kwItem1">
+				              <td style="text-align:center"><p class="form-control-static item">1</p></td>
+				              <td><input type="text" class="form-control" id="kw1" placeholder="请输入关键词"></td>
+				              <td><input type="text" class="form-control" id="kwPercent1" placeholder="请输入百分比"></td>
+				              <td style="text-align:center"><p class="form-control-static">--</p></td>
+				              <td><a class="btn btn-danger btn-sm" href="#" onclick="delKwItem('1')">删除此项</a></td>
+				            </tr>
+				          </tbody>
+				        </table>
+			        </div>
+						</div>
+
+					  <div class="divide-line-small"></div>
+
+						<!-- 应用价格设置 -->
+					  <div class="form-group">
+					    <label class="col-sm-2 control-label" for="platform">应用价格</label>
+					    <div class="col-sm-6">
+					      <div class="form-group">
+					        <label class="radio-inline" for="app_type_free">
+					          <input id="app_type_free" name="appstore_type" type="radio" value="0"  />免费
+					        </label>
+					        <label class="radio-inline" for="app_type_pay">
+					          <input id="app_type_pay" name="appstore_type" type="radio" value="1" checked />付费
+					        </label>
+					      </div>
+					    </div>
+					    <div class="col-sm-4">
+					      <p class="form-control-static" style="color:red">TIPS:当前临时账户余额&nbsp;<b><span id="curr_temp_money"></span></b>&nbsp;元</p>
+					    </div>
+					  </div>
+
+					  <div class="form-group">
+					    <label class="col-sm-2 control-label" for="app_single_price">单价</label>
+					    <div class="col-sm-4">
+					      <p class="form-control-static" id="app_single_price">8.000</p>
+					    </div>
+					  </div>
+
+
+					  <div class="divide-line-small"></div>
+
+						<!-- 专属任务 -->
+						<!--
+						  <div class="form-group">
+						    <label class="col-sm-2 control-label" for="platform">专属任务</label>
+						    <div class="col-sm-10">
+						      <div class="form-group">
+						        <label class="radio-inline zs_task_needed-toggle" for="zs_task-open">
+						          <input id="zs_task-open" name="zs_task_needed" type="radio" value="1"  />开启
+						        </label>
+						        <label class="radio-inline zs_task_not_needed-toggle" for="zs_task-close">
+						          <input id="zs_task-close" name="zs_task_needed" type="radio" value="0" checked />屏蔽
+						        </label>
+						      </div>
+						    </div>
+						  </div>
+						-->
+					  <div id="zs_task">
+					    <div id="zs_task-list">
+					    
+					     <div class="form-group zs_task-detail hidden">
+					      <label class="col-sm-2 control-label" for="zs_task">专属任务1</label>
+				        <div class="col-sm-1">
+				          <p class="form-control-static">第</p>
+				        </div>
+				        <div class="col-sm-2">
+				          <input id="zs_task" class="form-control hidden" name="zs_task_the_day" type="text" value="1"/>
+				          <p class="form-control-static">1</p>
+				        </div>
+				        <div class="col-sm-1">
+				          <p class="form-control-static">天</p>
+				        </div>
+				        <div class="col-sm-2">
+				          <p class="form-control-static">免费</p>
+				        </div>
+					    </div>
+					  </div>
+
+
+					  <div class="form-group zs_task-detail hidden">
+				      <label class="col-sm-2 control-label" for="za_task"></label>
+			        <div class="col-sm-5">
+			          <a href="#">新增专属任务</a>
+			        </div>
+					  </div>
+
+					  <!-- <div class="divide-line-small"></div> -->
+
+						<!-- 投放平台设置 -->
+					  <div class="form-group">
+					    <label class="col-sm-2 control-label" for="platform">投放平台</label>
+					    <div class="col-sm-10">
+					      <div class="form-group">
+					        <label class="radio-inline" for="platform-iphone">
+					          <input id="platform-iphone" name="platform" type="radio" value="0" checked />只在iPhone显示
+					        </label>
+					        <label class="radio-inline" for="platform-ipod">
+					          <input id="platform-ipod" name="platform" type="radio" value="1"  />只在iPad显示
+					        </label>
+					        <label class="radio-inline" for="platform-all">
+					          <input id="platform-all" name="platform" type="radio" value="2"  />两者都显示
+					        </label>
+					      </div>
+					    </div>
+					  </div>
+
+					  <div class="form-group">
+					    <div class="col-sm-offset-3 col-sm-9">
+					      <button type="button" class="btn btn-primary" id="submit-btn">确认添加广告</button>
+					    </div>
+					  </div>
+					  <a href="#" id="getCurrTempMoney" onclick="getCurrTempMoney()"></a>
+					</form>
+
+				  <div class="form-group zs_task-detail hidden">
+				    <label class="col-sm-2 control-label" for="zs_task"></label>
+				    <div class="col-sm-1">
+				      <p class="form-control-static">第</p>
+				    </div>
+				    <div class="col-sm-2">
+				      <input id="zs_task" class="form-control" name="zs_task_the_day" type="text" value="0"/>
+				    </div>
+				    <div class="col-sm-1">
+				      <p class="form-control-static">天</p>
+				    </div>
+				    <div class="col-sm-2">
+				      <p class="form-control-static">单价1元</p>
+				    </div>
+				  </div>
+
+					<article id="idfa-compare" class="hidden">
+					  <h1>IDFA 比对</h1>
+					  <p>钱咖需要通过本接口来获取某一个 IDFA 是否下载过广告主的应用。</p>
+					  <p>钱咖有着数百万的用户，对于装机量大的应用，很有可能有相当一部分的钱咖用户下载过这些应用。将广告推给已安装过广告主，不仅会影响推广效果，更会使得广告主和钱咖在推广结束后由于数据核对问题影响后续合作，错过最佳推广时机。另外，很多渠道也存在重复用户的情况，所以钱咖建议广告主在推广前对接好 IDFA 比对接口，达到双赢的目的。</p>
+					  <h2>技术实现</h2>
+					  <p>IDFA 比对接口通过 http 或 https 协议，由钱咖向广告主发起。广告主需要搭建 Web 服务并告知钱咖该服务的 URL；当接收到来自钱咖发起的请求时，返回比对结果。</p>
+					  <p>例如：</p>
+					  <pre>
+						http://example.com/idfa-query</pre>
+
+					  <p>钱咖通过 POST 方法（application/x-www-form-urlencoded）提交以下参数至广告主提供的 URL。参数说明如下，</p>
+					  <pre>
+						appid：广告主应用在 App Store 的编号。
+						idfa: IDFA 列表，多个以逗号","分隔。钱咖一次查询最多发送 1,000 个 IDFA。例如：
+						idfa=5A58EF1E-EEF2-478D-94EE-709B98407589,A0A82816-3383-437B-A535-F910162A7098</pre>
+
+					  <p>返回结果为 json 格式，如 IDFA 已存在标识为 1，不存在标识为 0。例如：</p>
+					  <pre>
+						{
+						  "5A58EF1E-EEF2-478D-94EE-709B98407589": 1,
+						  "A0A82816-3383-437B-A535-F910162A7098": 0
+						}</pre>
+					</article>			
+		    </div>
+				<!-- //添加新广告结束 -->
+			</div>
+		</div>
+	</div>
+</div>
+<script src="/js/customer-add-guanggao.js"></script>
+<script src="/js/bootstrap-datetimepicker.min.js"></script>
+<script src="/js/bootstrap-datetimepicker.zh-CN.js"></script>

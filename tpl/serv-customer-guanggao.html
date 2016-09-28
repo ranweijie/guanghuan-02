@@ -1,0 +1,81 @@
+<div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+    <div class="panel panel-success">
+        <div class="panel-heading main-content-title">{{title}}</div>
+        <div class="panel-body">
+          <table class="table table-hover table-condensed table-bordered platform-guanggao-brief">
+            <thead>
+                <tr>
+                  <th colspan="7">广告总数（笔）</th>
+                  <th colspan="3">广告总金额（元）</th>
+                </tr>
+                <tr align="center">
+                  <td>待审核</td>
+                  <td>审核失败</td>
+                  <td>投放中</td>
+                  <td>暂停中</td>
+                  <td>已完成</td>
+                  <td>客户取消</td>
+                  <td>所有</td>
+                  <td style="color:red;font-weight:600">待审核总额</td>
+                  <td>已支出</td>
+                  <td>已投放完成</td>
+                </tr>
+            </thead>
+            <tbody>
+              <tr align="center">
+                <td><span id="wait_check">0</span></td>
+                <td><span id="check_fail">0</span></td>
+                <td><span id="gonging">0</span></td>
+                <td><span id="pause">0</span></td>
+                <td><span id="complete">0</span></td>
+                <td><span id="cancel">0</span></td>
+                <td><span id="all">0</span></td>
+                <td style="color:red;font-weight:600">&yen;<span id="wait_check_money">0.00</span></td>
+                <td>&yen;<span id="real_total_money">0.00</span></td>
+                <td>&yen;<span id="complete_total_money">0.00</span></td>
+              </tr>
+            </tbody>
+          </table>
+          <a href="#" id="getPlatformGuanggaoBrief"></a>
+
+          <div class="btn-group" role="group">
+            <a href="javascript:;" class="btn btn-default active" id="getWaitCheckGuanggao" onclick="getCustomerGuanggaoInfo(1,'wait_check')">待审核</a>
+            <a href="javascript:;" class="btn btn-default" onclick="getCustomerGuanggaoInfo(1,'cancel')">客户取消</a>
+            <a href="javascript:;" class="btn btn-default" onclick="getCustomerGuanggaoInfo(1,'check_fail')">审核失败</a>
+            <a href="javascript:;" class="btn btn-default" onclick="getCustomerGuanggaoInfo(1,'going')" >投放中</a>
+            <a href="javascript:;" class="btn btn-default" onclick="getCustomerGuanggaoInfo(1,'pause')">暂停</a>
+            <a href="javascript:;" class="btn btn-default" onclick="getCustomerGuanggaoInfo(1,'complete')">完成</a>
+            <a href="javascript:;" class="btn btn-default" onclick="getCustomerGuanggaoInfo(1,'all')">所有</a>
+          </div>
+          <input type="hidden" id="now_click_status" value="wait_check">
+
+          <table class="table table-hover table-condensed table-bordered" style="margin-top:1.5rem;">
+            <thead>
+              <tr>
+                <th>广告日期</th>
+                <th>客户账号</th>
+                <th>广告编号</th>
+                <th>状态</th>
+                <th>投放平台</th>
+                <th>开始时间</th>
+                <th>截止时间</th>
+                <th>计划份数</th>
+                <th>完成份数</th>
+                <th>计划支出</th>
+                <th>当前支出</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody id='customerGuanggaoList'>
+            </tbody>
+          </table>
+          <div class="text-center">
+            <div id="customerGuanggaoPage"></div>
+          </div>
+        </div>
+    </div>
+   </div>
+</div>
+<script type="text/javascript" src="/js/serv-customer-guanggao.js"></script>
+<script type="text/javascript" src="/js/jquery.bootpag.min.js"></script>

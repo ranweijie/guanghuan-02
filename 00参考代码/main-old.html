@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">   
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>霸王GM工具</title>
+    <link type="text/css" href="/css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" href="/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link type="text/css" href="/css/bootstrap-dialog.min.css" rel="stylesheet">
+    <link type="text/css" href="/css/jyzz.css" rel="stylesheet">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap-dialog.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.qrcode.min.js"></script>
+    <script type="text/javascript" src="/js/jyzz.js"></script>
+    <!-- start-smoth-scrolling -->
+    <script type="text/javascript" src="/js/move-top.js"></script>
+    <script type="text/javascript" src="/js/easing.js"></script>
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $(".scroll").click(function(event){   
+          event.preventDefault();
+          $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+        });
+      });
+    </script>
+  <!-- start-smoth-scrolling -->
+</head>
+<body spellcheck="false">
+    <div class="navbar navbar-default navbar-fixed-top navbar-left">
+        <div class="container-">  <!--container的width是用媒体查询获得的动态尺寸-->
+            <div class="navbar-header">
+
+                % if sidebar:
+                <a class="navbar-brand" href="/?server={{server+1}}">霸王GM工具</a>
+                % else:
+                <a class="navbar-brand" href="/">霸王GM工具</a>
+                % end
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                    功能
+                </button>
+                % if sidebar:
+                <button class="navbar-toggle hidden-sm hidden-md hidden-lg" type="button" data-toggle="sidebar" data-target=".sidebar-left">
+                    导航
+                </button>
+                % end
+            </div>
+
+            <div class="navbar-collapse collapse" id="navbar-main">
+                <ul class="nav navbar-nav">
+                    % if sidebar:
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{servers[server]["name"]}} <span class="glyphicon glyphicon-chevron-down"></span></a>
+                        % if len(servers)>=10:
+                        <ul class="dropdown-menu columns" role="menu">
+                        % else:
+                        <ul class="dropdown-menu " role="menu">
+                        % end
+                            % for id, item in enumerate(servers):
+                                % if "ip" in item:
+                                    <li>
+                                        % for url in [["base.html", "/", "基础维护"], ["role.html", "/role", "角色相关"],["force.html", "/force", "势力相关"],["support.html", "/support", "客服支持"],["stat.html", "/stat", "统计信息"], ["flow.html", "/flow", "玩家日志"] ]:
+                                            % if url[0]==content:
+                                            <a href="{{url[1]}}?server={{id+1}}">{{id+1}}# {{item["name"]}}</a>
+                                            % end
+                                        % end
+                                    </li>
+                                % end
+                            % end
+                            % if not len(servers)>=10:
+                            <li class="divider"></li>
+                            % end
+                            % for id, item in enumerate(servers):
+                                % if "ip" not in item:
+                                    <li class="disabled">
+                                        <a href="#">{{id+1}}# {{item["name"]}}</a>
+                                    </li>
+                                % end
+                            % end
+                        </ul>
+                    </li>
+                    % end
+
+
+                    % if HasAuthority("setting"):
+                    % if content=="setting.html":
+                    <li class="active">
+                    % else:
+                    <li>
+                    % end
+                        <a href="/setting">设置</a>
+                    </li>
+                    % end
+
+                    <!--% if HasAuthority("batch"):-->
+                    <!--% if content=="batch.html":-->
+                    <!--<li class="active">-->
+                    <!--% else:-->
+                    <!--<li>-->
+                    <!--% end-->
+                        <!--<a href="/batch">批量</a>-->
+                    <!--</li>-->
+                    <!--% end-->
+
+                    <!--% if HasAuthority("income"):-->
+                    <!--% if content=="income.html":-->
+                    <!--<li class="active">-->
+                    <!--% else:-->
+                    <!--<li>-->
+                    <!--% end-->
+                        <!--<a href="/income">收入</a>-->
+                    <!--</li>-->
+                    <!--% end-->
+
+                    <!--% if HasAuthority("activation"):-->
+                    <!--% if content=="activation.html":-->
+                    <!--<li class="active">-->
+                    <!--% else:-->
+                    <!--<li>-->
+                    <!--% end-->
+                        <!--<a href="/activation">激活码</a>-->
+                    <!--</li>-->
+                    <!--% end-->
+
+
+                    % if HasAuthority("searchlog"):
+                    % if content=="log.html":
+                    <li class="active">
+                    % else:
+                    <li>
+                    % end
+                        <a href="/log">日志</a>
+                    </li>
+                    % end
+
+                    <!--% if HasAuthority("consume"):-->
+                    <!--% if content=="consume.html":-->
+                    <!--<li class="active">-->
+                    <!--% else:-->
+                    <!--<li>-->
+                    <!--% end-->
+                        <!--<a href="/consume">消费</a>-->
+                    <!--</li>-->
+                    <!--% end-->
+
+                    <!--% if HasAuthority("offline"):-->
+                    <!--% if content=="offline.html":-->
+                    <!--<li class="active">-->
+                    <!--% else:-->
+                    <!--<li>-->
+                    <!--% end-->
+                        <!--<a href="/offline">在线时长</a>-->
+                    <!--</li>-->
+                    <!--% end-->
+                    <li>
+                        <a href="/logout">注销</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid"><!--container-fluid的width是100％,占据全部视口（viewport）的容器-->
+        <div class="row">
+            % if sidebar:
+            <div class="col-xs-12 col-sm-2 col-md-2 col-sm-2 sidebar sidebar-animate sidebar-left sidebar-sm-show">
+                <ul class="nav nav-pills nav-stacked">
+                    % for item in [["base.html", "/", "基础维护"], ["role.html", "/role", "角色相关"],["force.html", "/force", "势力相关"],["support.html", "/support", "客服支持"],["stat.html", "/stat", "统计信息"], ["flow.html", "/flow", "玩家日志"] ]:
+                        %if item[0]==content:
+                            <li class="active">
+                             %else:
+                            <li>
+                        %end
+                              <a href="{{item[1]}}?server={{server+1}}">{{item[2]}}</a>
+                            </li>
+                    % end
+                    <!--% if HasAuthority("GetActivityConfig"):-->
+                    <!--% if content=="activity.html":-->
+                    <!--<li class="dropdown active">-->
+                    <!--% else:-->
+                    <!--<li class="dropdown">-->
+                    <!--% end-->
+                        <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">-->
+                            <!--活动管理-->
+                            <!--<span class="caret"></span>-->
+                        <!--</a>-->
+                        <!--<ul class="dropdown-menu" id="activity_list">-->
+                            <!--<li><a href="/activity?type=1&amp;server={{server+1}}" type="1">永久活动</a></li>-->
+                            <!--<li><a href="/activity?type=2&amp;server={{server+1}}" type="2">重复活动</a></li>-->
+                        <!--</ul>-->
+                    <!--</li>-->
+                    <!--% end -->
+                </ul>
+            </div>
+            % end
+            % if sidebar:
+            <div class="main col-md-10 col-md-offset-2 col-sm-10 col-sm-offset-2">
+            % else:
+            <div class="main col-md-12 col-sm-12">
+            % end
+              <div class="alert alert-danger alert-dismissible hide" id="chrome_alert">
+                  <button type="button" class="close" data-dismiss="alert">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+                  <strong>提示：</strong>推荐使用 <strong>
+                    <a href="http://redirector.gvt1.com/edgedl/chrome/win/5CB74109EAA59785/40.0.2214.93_chrome_installer.exe" class="alert-link">Google Chrome</a>
+                  </strong> 浏览器，以获得最佳访问效果
+              </div>
+              % include(content)
+            </div>
+        </div>
+    </div>
+    <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 0;"></span></a>
+    % if sidebar:
+    <script type="text/javascript" src="/js/sidebar.js"></script>
+    % end
+</body>
+</html>

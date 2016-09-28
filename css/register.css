@@ -1,0 +1,139 @@
+
+body {
+  background-color: #f9f9f9;
+}
+.main-content {
+  margin-top: 50px;
+  background-color: #f7f7f7;
+  border: .1rem solid #e0e0e0;
+  border-radius: .8rem;
+}
+
+.register-box{
+	width: 100%;
+	background-color: #f9f9f9;
+}
+
+.register-content{
+	width:45rem;
+	margin: 0 auto;
+	margin-top:5rem;
+	background-color: #f0f0f0;
+	border: .1rem solid #e0e0e0;
+	border-radius: .5rem;
+}
+
+h2{
+	/*background-color: #65A3F1;*/
+	width: 90%;
+	margin: 1rem auto;
+	/*border:1px solid red;*/
+}
+
+h2 span{
+	display: inline-block;
+	font-size: 1rem;
+	height: 30px;
+	line-height: 30px;
+	float: right;
+	margin-right: 4px;
+}
+h2 a{
+	float: right;
+}
+
+form{
+	width: 90%;
+	margin: .5rem auto;
+
+}
+ form > .regsiter-item{
+ 	width: 100%;
+ 	line-height: 2rem;
+ 	margin-top: .5rem;
+ }
+
+input{
+	border: .1rem solid #ccc;
+	border-radius: .3rem;
+}
+.regsiter-item label{
+	box-sizing:border-box;
+	display: inline-block;
+ 	width: 15%;
+ 	font-weight: bold;
+ 	text-align:right;
+ 	padding-right: 1rem;
+ }
+.regsiter-item input{
+	display: inline-block;
+	box-sizing:border-box;
+	width: 40%;
+	height: 2rem;
+}
+
+.regsiter-item >span{
+	display: inline-block;
+	/*width: 45%;*/
+	font-size: 0.8rem;
+	height: 2rem;
+}
+
+.regsiter-item span.red-tips{
+	color: red;
+	font-weight: bold;
+}
+
+/*input框样式*/
+.init-input-border{
+	border: .1rem solid #ccc;
+}
+.success-input-border{
+	border: .1rem solid #09521B;
+}
+.danger-input-border{
+	border: .1rem solid #B30924;
+}
+
+/*提示文字样式*/
+.init-tips{
+	color: #3B3737;
+}
+.success-tips{
+	color: #09521B;
+}
+.danger-tips{
+	color: #B30924;
+}
+/*按钮样式*/
+button.submit-btn{
+	width: 8rem;
+	border: .3rem solid transparent;
+	border-radius: .3rem;
+	background-color: #47a8ef;
+	color: #fff;
+	font-weight: bold;
+	cursor: pointer;
+}
+button.submit-btn{
+	margin-left:15.5%; 
+}
+button.submit-btn:hover{
+	background-color: #337ab7;
+}
+
+.website-rule{
+	display: inline-block;
+	/*width: 8rem;*/
+	margin-left: 5%;
+	color: #888;
+	font-size: 2rem;
+	font-weight: bold;
+	border-bottom: .15rem solid transparent;
+}
+
+.website-rule:hover{
+	border-bottom: .15rem solid #666;
+	cursor: pointer;
+}
+

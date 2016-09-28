@@ -1,0 +1,80 @@
+<div class="row">
+  <div class="col-sm-12 col-md-12 col-lg-12">
+    <div class="panel panel-success">
+      <div class="panel-heading main-content-title">{{title}}</div>
+      <div class="panel-body">
+        <table class="table table-hover table-condensed table-bordered">
+          <thead>
+              <tr>
+                <th>客户数量</th>
+                <th colspan="3">客户充值</th>
+                <th colspan="5">客户消费(广告费用)</th>
+              </tr>
+              <tr align="center">
+                <td>当前总数</td>
+                <td>到账总额</td>
+                <td>待审核总额</td>
+                <td>总余额</td>
+                <td>今日消费</td>
+                <td>昨天消费</td>
+                <td>7天消费</td>
+                <td>30天消费</td>
+                <td>总消费</td>
+              </tr>
+          </thead>
+          <tbody id='platformBriefList'>
+            <tr align="right">
+              <td align="center"><span id="total_customer">0</span></td>
+              <td>&yen;<span id="success_charge">0.00</span></td>
+              <td>&yen;<span id="wait_check_charge">0.00</span></td>
+              <td>&yen;<span id="total_curr_money">0.00</span></td>
+              <td>&yen;<span id="today_cost">0.00</span></td>
+              <td>&yen;<span id="yesterday_cost">0.00</span></td>
+              <td>&yen;<span id="last7_cost">0.00</span></td>
+              <td>&yen;<span id="last30_cost">0.00</span></td>
+              <td>&yen;<span id="all_cost">0.00</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <a href="#" id="getPlatformBrief"></a>
+        <div class="text-center">
+            <div class="alert alert-info" role="alert">客户简要信息列表</div>
+        </div>
+
+        <table class="table table-hover table-condensed table-bordered">
+          <thead>
+            <tr>
+              <th colspan="4">基本信息</th>
+              <th colspan="3">客户充值</th>
+              <th colspan="6">广告投放(笔)</th>
+            </tr>
+            <tr align="center">
+                <td>账号</td>
+                <td>开通时间</td>
+                <td>公司名</td>
+                <td>联系人</td>
+                <td>已充值</td>
+                <td>待确认</td>
+                <td>可用余额</td>
+                <td>投放中</td>
+                <td>待审核</td>
+                <td>暂停中</td>
+                <td>已完成</td>
+                <td>总笔数</td>
+                <td>总消费</td>
+            </tr>
+          </thead>
+          <tbody id='customerBriefList'>
+          </tbody>
+        </table>
+        <a href="#" id="getCustomerBrief"></a>
+        <div class="text-center">
+          <div id="customerBriefPage"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="/js/serv-customer-info.js"></script>
+<script type="text/javascript" src="/js/jquery.bootpag.min.js"></script>

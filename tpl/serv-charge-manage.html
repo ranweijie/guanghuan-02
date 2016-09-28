@@ -1,0 +1,79 @@
+<div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+		<div class="panel panel-success">
+		    <div class="panel-heading main-content-title">{{title}}</div>
+		    <div class="panel-body">
+					<table class="table table-hover table-condensed table-bordered platform-charge-brief">
+	          <thead>
+	              <tr>
+	                <th colspan="5">充值总数（笔）</th>
+	                <th colspan="4">充值总金额（元）</th>
+	              </tr>
+	              <tr align="center">
+	                <td>待审核</td>
+	                <td>充值成功</td>
+	                <td>充值失败</td>
+	                <td>客户取消</td>
+	                <!-- <td>客户删除</td> -->
+	                <td>所有</td>
+	                <td>待审核总额</td>
+	                <td>已取消</td>
+	                <td>充值成功</td>
+	                <td>当前余额</td>
+	              </tr>
+	          </thead>
+	          <tbody id='platformChargeList'>
+	            <tr align="center">
+	              <td><span id="wait_pay">0</span></td>
+	              <td><span id="success">0</span></td>
+	              <td><span id="fail">0</span></td>
+	              <td><span id="cancel">0</span></td>
+	              <!-- <td><span id="del">0</span></td> -->
+	              <td><span id="all">0</span></td>
+	              <td>&yen;<span id="wait_pay_money">0.00</span></td>
+	              <td>&yen;<span id="cancel_charge_money">0.00</span></td>
+	              <td>&yen;<span id="charge_success_money">0.00</span></td>
+	              <td>&yen;<span id="curr_total_money">0.00</span></td>
+	            </tr>
+	          </tbody>
+	        </table>
+					<a href="javascript:;" id="getPlatformChargeBrief"></a>
+
+	        <div class="btn-group" role="group">
+	          <a href="javascript:;" class="btn btn-default active" onclick="getCustomerChargeInfo(1,'wait_pay')" id="getWaitPayCharge">待审核</a>
+	          <a href="javascript:;" class="btn btn-default" onclick="getCustomerChargeInfo(1,'success')">充值成功</a>
+	          <a href="javascript:;" class="btn btn-default" onclick="getCustomerChargeInfo(1,'fail')">充值失败</a>
+	          <a href="javascript:;" class="btn btn-default" onclick="getCustomerChargeInfo(1,'cancel')">客户取消</a>
+	          <!-- <a href="javascript:;" class="btn btn-default" title="客户删除，若已充值成功，则仅客户处主不显示" onclick="getCustomerChargeInfo('no_show')">客户删除</a> -->
+	          <a href="javascript:;" class="btn btn-default" onclick="getCustomerChargeInfo(1,'all')">所有</a>
+        	</div>
+        	<input type="hidden" id="now_click_status" value="wait_pay">
+
+        	<table class="table table-hover table-condensed table-bordered customer-charge-list" style="margin-top:1rem">
+	          <thead>
+	            <tr>
+	              <th>充值日期</th>
+	              <th>客户用户名</th>
+	              <th>付款人</th>
+	              <th>发票</th>
+	              <th>充值编号</th>
+	              <th>充值状态</th>
+	              <!-- <th>是否显示</th> -->
+	              <th>充值金额</th>
+	              <th>到账金额</th>
+	              <th>付款单号</th>
+	              <th>操作</th>
+	            </tr>
+	          </thead>
+	          <tbody id='customerChargeList'>
+	          </tbody>
+					</table>
+					<div class="text-center">
+	          <div id="customerChargePage"></div>
+	        </div>
+		    </div>
+		</div>
+   </div>
+</div>
+<script type="text/javascript" src="/js/serv-charge-manage.js"></script>
+<script type="text/javascript" src="/js/jquery.bootpag.min.js"></script>

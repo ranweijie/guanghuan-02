@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-sm-12 col-md-12 col-lg-12">
+		<div class="panel panel-success">
+	    <div class="panel-heading main-content-title">{{title}}</div>
+	    <div class="panel-body">
+				<div class="btn-group" role="group">
+          <a href="javascript:;" class="btn btn-default" onclick="getUserGuanggaoInfo(1,'cancel')">已取消: <span  id="cancel">0</span></a>
+          <a href="javascript:;" class="btn btn-default" onclick="getUserGuanggaoInfo(1,'wait_check')">待审核: <span  id="wait_check">0</span></a>
+          <a href="javascript:;" class="btn btn-default" onclick="getUserGuanggaoInfo(1,'check_fail')">审核失败: <span  id="check_fail">0</span></a>
+          <a href="javascript:;" class="btn btn-default" onclick="getUserGuanggaoInfo(1,'going')">投放中: <span  id="going">0</span></a>
+          <a href="javascript:;" class="btn btn-default" onclick="getUserGuanggaoInfo(1,'pause')">暂停: <span  id="pause">0</span></a>
+          <a href="javascript:;" class="btn btn-default" onclick="getUserGuanggaoInfo(1,'complete')">完成: <span id="complete">0</span></a>
+          <a href="javascript:;" class="btn btn-default active" onclick="getUserGuanggaoInfo(1,'all')" id="getAllGuanggaoInfo">所有: <span id="all">0</span></a>
+        </div>
+				<a href="javascript:;" id="get_user_guanggao_breif"></a>
+        <input type="hidden" id="now_click_status" value="all">
+
+				<a class="btn btn-primary pull-right" href="/guanggaoManage/customer-add-guanggao">添加广告</a>
+        
+        <h4>已添加广告列表：</h4>
+        <table class="table table-hover table-condensed table-bordered">
+          <thead>
+            <tr align="center">
+              <th>广告</th>
+              <th>平台</th>
+              <th>状态</th>
+              <th>开始时间</th>
+              <th>截止时间</th>
+              <th>计划份数</th>
+              <th>完成份数</th>
+              <th>单价</th>
+              <th>计划支出</th>
+              <th>实际支出</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody id='guanggaoInfoList'>
+          </tbody>
+				</table>
+        <div class="text-center">
+          <div id="guanggaoInfoPage"></div>
+        </div>
+	    </div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="/js/customer-guanggao-manage.js"></script>
+<script type="text/javascript" src="/js/jquery.bootpag.min.js"></script>

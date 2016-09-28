@@ -1,0 +1,24 @@
+{
+	"not log":[
+		"checkDbUsername","isPasswordMatch","checkDbDisplayName","getUserInfo","checkOldPwd","getCurrTempMoney",
+		"getAccountReport","getUserChargeInfo","getUserGuanggaoBreif","getUserGuanggaoInfo",
+
+		"getPlatformBrief","getCustomerBrief",
+		"getPlatformChargeBrief","getCustomerChargeInfo",
+		"getPlatformGuanggaoBrief","getCustomerGuanggaoInfo",
+
+
+
+		"getPlublishTaskBreif","getTaskDetail","getCanModifyTaskDetail","isNoRepeatFieldOK"
+		],
+	"oz manage": [
+		"userRegister","userLogin","userCharge","cancelCharge","delCharge",
+		"userAddGuanggao","cancelGuanggao","modifyUserBaseInfo","modifyUserPwd",
+
+		"confirmCustomerCharge","failCustomerCharge","confirmCustomerGuanggao","failCustomerrGuanggao",
+		"modifyTask"
+		],
+	"oz task": ["getPlublishTaskBreif","getTaskDetail","getCanModifyTaskDetail",
+    "isNoRepeatFieldOK","addTask","delTask","modifyTaskDetail"
+    	]
+}

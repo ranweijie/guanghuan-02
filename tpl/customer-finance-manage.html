@@ -1,0 +1,55 @@
+<div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+		<div class="panel panel-success">
+		    <div class="panel-heading main-content-title">{{title}}</div>
+		    <div class="panel-body">
+		        <table class="table table-hover table-condensed table-bordered">
+		          <thead>
+		              <tr align="center">
+		                  <th>今日消费</th>
+		                  <th>昨日消费</th>
+		                  <th>7天消费</th>
+		                  <th>30天消费</th>
+		                  <th>账户余额</th>
+		              </tr>
+		          </thead>
+		          <tbody>
+		            <tr align="center">
+		              <td>&yen;<span id="today_cost">0.00</span></td>
+		              <td>&yen;<span id="yesterday_cost">0.00</span></td>
+		              <td>&yen;<span id="last7_cost">0.00</span></td>
+		              <td>&yen;<span id="last30_cost">0.00</span></td>
+		              <td>&yen;<span id="curr_money">0.00</span><a id="charge_btn" class="btn btn-danger btn-xs" href="/financeManage/customer-charge">充&nbsp;&nbsp;值</a></td>
+		            </tr>
+		          </tbody>
+		        </table>
+		        <a href="javascript:;" id="getAccountReport"></a>
+
+		        <table class="table table-hover table-condensed table-bordered">
+		          <thead>
+		              <tr align="center">
+		                  <th>日期</th>
+		                  <th>类型</th>
+		                  <th>付款人</th>
+		                  <th>发票</th>
+		                  <th>操作编号</th>
+		                  <th>状态</th>
+		                  <th>充值金额</th>
+		                  <th>到账金额</th>
+		                  <th>付款单号</th>
+		                  <th>操作</th>
+		              </tr>
+		          </thead>
+		          <tbody id='chargeInfoList'>
+              </tbody>
+						</table>
+						<a href="javascript:;" id="getUserChargeInfo"></a>
+		        <div class="text-center">
+		          <div id="userChargeInfoPage"></div>
+		        </div>
+		    </div>
+		</div>
+   </div>
+</div>
+<script type="text/javascript" src="/js/customer-finance-manage.js"></script>
+<script type="text/javascript" src="/js/jquery.bootpag.min.js"></script>

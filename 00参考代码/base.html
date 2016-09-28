@@ -1,0 +1,210 @@
+<link type="text/css" href="/css/daterangepicker-bs3.css" rel="stylesheet">
+
+<div class="row">
+    % if HasAuthority("broadcast"):
+    <div class="col-md-4 col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">发布系统公告（屏幕中间）</div>
+            <div class="panel-body">
+                <textarea class="form-control" id="broadcast_text" placeholder="请输入系统公告内容" rows="5"></textarea>
+            </div>
+            <div class="panel-footer">
+                <a href="#" class="btn btn-default" id="broadcast">提交</a>
+            </div>
+        </div>
+    </div>
+    % end
+
+    % if HasAuthority("SystemMessage"):
+    <div class="col-md-4 col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">发布系统消息（聊天窗口）</div>
+            <div class="panel-body">
+                <textarea class="form-control" id="SystemMessage_text" placeholder="请输入系统消息内容" rows="5"></textarea>
+            </div>
+            <div class="panel-footer">
+                <a href="#" class="btn btn-default" id="SystemMessage">提交</a>
+            </div>
+        </div>
+    </div>
+    % end
+<!--
+    % if HasAuthority("UpdateAnnouncement"):
+    <div class="col-md-4 col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">设置更新公告</div>
+            <div class="panel-body">
+                <textarea class="form-control" id="UpdateAnnouncement_text" rows="5"></textarea>
+            </div>
+            <div class="panel-footer">
+                <a href="#" class="btn btn-default" id="UpdateAnnouncement">提交</a>
+            </div>
+        </div>
+    </div>
+    % end
+-->
+</div>
+<div class="row">
+    % if HasAuthority("getPlayerNum"):
+    <div class="col-md-4 col-sm-6">
+        <div class="panel panel-success">
+            <div class="panel-heading">查询服务器在线人数
+                <a href="#">
+                    <span class="glyphicon glyphicon-refresh pull-right" id="getPlayerNum"></span>
+                </a>
+            </div>
+            <div class="panel-body">
+                <div class="pull-left">
+                    <h5>当前人数：
+                        <label id="PlayerNum">获取失败</label>
+                    </h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    % end
+<!--
+    % if HasAuthority("reloadAllCfg"):
+    <div class="col-md-4 col-sm-6">
+        <div class="panel panel-success">
+            <div class="panel-heading">热更新所有配置</div>
+            <div class="panel-body">
+                <a href="#" class="btn btn-default" id="reloadAllCfg">
+                    <span class="glyphicon glyphicon-refresh"></span> 更新</a>
+            </div>
+        </div>
+    </div>
+    % end
+    
+    % if HasAuthority("ReloadTmpProcess"):
+    <div class="col-md-4 col-sm-6">
+        <div class="panel panel-success">
+            <div class="panel-heading">热更新tmp_process</div>
+            <div class="panel-body">
+                <a href="#" class="btn btn-default" id="ReloadTmpProcess">
+                    <span class="glyphicon glyphicon-refresh"></span> 更新</a>
+            </div>
+        </div>
+    </div>
+    % end
+-->
+</div>
+<div class="row">
+    % if HasAuthority("saveAll"):
+    <div class="col-md-4 col-sm-6">
+        <div class="panel panel-success">
+            <div class="panel-heading">保存全服数据</div>
+            <div class="panel-body">
+                <a href="#" class="btn btn-default" id="saveAll">提交</a>
+            </div>
+        </div>
+    </div>
+    % end
+<!--
+    % if HasAuthority("robot-bak"):
+    <div class="col-md-4 col-sm-6">
+        <div class="panel panel-warning">
+            <div class="panel-heading">创建机器人</div>
+            <div class="panel-body">
+                <a href="#" class="btn btn-default" id="robot_ask">提交</a>
+            </div>
+        </div>
+    </div>
+    % end
+
+    % if HasAuthority("ReloadMoudle"):
+    <div class="col-md-4 col-sm-6">
+        <div class="panel panel-danger">
+            <div class="panel-heading">重载模块</div>
+            <div class="panel-body">
+                <h5>模块名：</h5>
+                <input type="text" class="form-control" id="ReloadMoudleName" placeholder="请输入您要重载的模块名" >
+            </div>
+            <div class="panel-footer">
+                <a href="#" class="btn btn-default" id="ReloadMoudle">提交</a>
+            </div>
+        </div>
+    </div>
+    % end
+    
+    
+    % if HasAuthority("shutdown"):
+    <div class="col-md-4 col-sm-6">
+        <div class="panel panel-danger">
+            <div class="panel-heading">关闭服务器</div>
+            <div class="panel-body">
+                <a href="#" class="btn btn-default" id="shutdown_ask">提交</a>
+            </div>
+        </div>
+    </div>
+    % end
+-->
+</div>
+<!--
+<div class="row">
+    % if HasAuthority("GetPushMessage"):
+    <div class="col-md-4 col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">推送
+                <a href="#">
+                    <span class="glyphicon glyphicon-refresh pull-right" id="GetPushMessage"></span>
+                </a>
+            </div>
+            <div class="panel-body">
+                <h5>已有推送：</h5>
+                <div id="push_message_content">
+                </div>
+            </div>
+            <div class="panel-footer">
+                <a href="#" class="btn btn-default" id="push_message">修改推送</a>
+            </div>
+        </div>
+    </div>
+    % end
+
+    % if HasAuthority("GetCyclicBroadcast"):
+    <div class="col-md-4 col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">定时循环公告
+                <a href="#">
+                    <span class="glyphicon glyphicon-refresh pull-right" id="GetCyclicBroadcast"></span>
+                </a>
+            </div>
+            <div class="panel-body">
+                <h5>已有公告：</h5>
+                <div id="CyclicBroadcast">
+                </div>
+            </div>
+            <div class="panel-footer">
+                <a href="#" class="btn btn-default" id="InsertCyclicBroadcast">添加公告</a>
+            </div>
+        </div>
+    </div>
+    % end
+    % if HasAuthority("GetNoticeMessage"):
+    <div class="col-md-4 col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">游戏公告
+                <a href="#">
+                    <span class="glyphicon glyphicon-refresh pull-right" id="GetNoticeMessage"></span>
+                </a>
+            </div>
+            <div class="panel-body">
+                <h5>已有游戏公告：</h5>
+                <div id="Notice_message_content">
+                </div>
+            </div>
+            <div class="panel-footer">
+                <a href="#" class="btn btn-default" id="SendNoticemessage">提交</a>
+            </div>
+        </div>
+    </div>
+    % end     
+</div>
+-->
+<script type="text/javascript" src="/js/bootstrap3-typeahead.min.js"></script>
+<script type="text/javascript" src="/js/item.js"></script>
+<script type="text/javascript" src="/js/moment.min.js"></script>
+<script type="text/javascript" src="/js/daterangepicker.js"></script>
+<script type="text/javascript" src="/js/base.js"></script>
+<script type="text/javascript" src="/js/stringFormat.js"></script>
